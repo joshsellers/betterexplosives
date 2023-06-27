@@ -1,0 +1,27 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "explosives:bomb"
+		},
+		"tags": [
+			"explosives_assembly_table"
+		],
+		"key": {
+			"#": {
+				"item": "minecraft:gunpowder"
+			},
+			"X": {
+				"item": "minecraft:clay_ball"
+			}
+		},
+		"pattern": [
+			" X ",
+			"X#X",
+			" X "
+		],
+		"result": {
+			"item": "explosives:bomb"
+		}
+	}
+}

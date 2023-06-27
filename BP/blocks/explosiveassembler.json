@@ -1,0 +1,26 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "explosives:explosiveassembler"
+		},
+		"components": {
+			"minecraft:geometry": "geometry.explosiveassembler",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "explosives_explosiveassembler",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 4
+			},
+			"minecraft:crafting_table": {
+				"crafting_tags": [
+					"explosives_assembly_table"
+				],
+				"table_name": "Explosives Assembly Table",
+			}
+		}
+	}
+}

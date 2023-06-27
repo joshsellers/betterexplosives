@@ -1,0 +1,63 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"joshs"
+		],
+		"generated_with": {
+			"bridge": [
+				"2.6.0"
+			],
+			"dash": [
+				"0.10.8"
+			]
+		}
+	},
+	"header": {
+		"name": "More Explosives",
+		"description": "",
+		"min_engine_version": [
+			1,
+			19,
+			60
+		],
+		"uuid": "1666c6f2-4c64-4c73-ae41-8bca83341fd9",
+		"version": [
+			1,
+			0,
+			0
+		]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "b0e53912-28f5-4f71-ab5a-5621e78b26f5",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "7c248995-ef37-4270-a5c7-1df770371174",
+			"entry": "scripts/main.js",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.3.0-beta"
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "1.1.0-beta"
+		}
+	]
+}

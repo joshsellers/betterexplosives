@@ -1,0 +1,42 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"joshs"
+		],
+		"generated_with": {
+			"bridge": [
+				"2.6.0"
+			],
+			"dash": [
+				"0.10.8"
+			]
+		}
+	},
+	"header": {
+		"name": "More Explosives",
+		"description": "",
+		"min_engine_version": [
+			1,
+			19,
+			60
+		],
+		"uuid": "0313349d-93fb-4e63-8389-90e79f6b606e",
+		"version": [
+			1,
+			0,
+			0
+		]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "412f0639-56cf-4d7c-820e-6bf523c4312c",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	]
+}

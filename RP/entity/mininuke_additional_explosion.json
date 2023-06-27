@@ -1,0 +1,24 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "explosives:mininuke_additional_explosion",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/mininuke_additional_explosion"
+			},
+			"geometry": {
+				"default": "geometry.mininuke_additional_explosion"
+			},
+			"render_controllers": [
+				"controller.render.mininuke_additional_explosion"
+			],
+			"spawn_egg": {
+				"base_color": "#000000",
+				"overlay_color": "#FFFFFF"
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"num_mip_levels": 4,
+	"padding": 8,
+	"resource_pack_name": "More Explosives",
+	"texture_name": "atlas.terrain",
+	"texture_data": {
+		"explosives_bomb": {
+			"textures": "textures/blocks/bomb"
+		},
+		"explosives_explosiveassembler": {
+			"textures": "textures/blocks/bombassembler"
+		},
+		"explosives_mininuke": {
+			"textures": "textures/blocks/mininuke"
+		}
+	}
+}

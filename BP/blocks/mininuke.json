@@ -1,0 +1,20 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "explosives:mininuke"
+		},
+		"components": {
+			"minecraft:geometry": "geometry.mininuke",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "explosives_mininuke",
+					"render_method": "alpha_test"
+				}
+			}
+		},
+		"minecraft:destructible_by_mining": {
+			"seconds_to_destroy": 1
+		}
+	}
+}

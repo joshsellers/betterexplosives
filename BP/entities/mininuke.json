@@ -1,0 +1,45 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "explosives:mininuke",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"tnt",
+					"inanimate"
+				]
+			},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": true
+			},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:knockback_resistance": {
+				"value": 0.025
+			},
+			"minecraft:explode": {
+				"fuse_length": 10,
+				"fuse_lit": true,
+				"breaks_blocks": true,
+				"causes_fire": true,
+				"power": 40,
+				"max_resistance": 0
+			},
+			"minecraft:health": {
+				"max": 1000,
+				"value": 1000
+			},
+			"minecraft:fire_immune": true
+		},
+		"events": {}
+	}
+}

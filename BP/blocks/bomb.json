@@ -1,0 +1,44 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "explosives:bomb"
+		},
+		"components": {
+			"minecraft:geometry": "geometry.bomb",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "explosives_bomb",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:collision_box": {
+				"size": [
+					8,
+					9,
+					8
+				],
+				"origin": [
+					-4,
+					0,
+					-4
+				]
+			},
+			"minecraft:selection_box": {
+				"size": [
+					8,
+					9,
+					8
+				],
+				"origin": [
+					-4,
+					0,
+					-4
+				]
+			}
+		}
+	}
+}

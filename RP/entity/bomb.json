@@ -1,0 +1,30 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "explosives:bomb",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/bomb"
+			},
+			"geometry": {
+				"default": "geometry.bomb"
+			},
+			"animations": {
+				"bomb": "controller.animation.bomb"
+			},
+			"render_controllers": [
+				"controller.render.bomb"
+			],
+			"spawn_egg": {
+				"base_color": "#000000",
+				"overlay_color": "#FFFFFF"
+			},
+			"particle_effects": {
+				"smoke": "minecraft:basic_smoke_particle"
+			}
+		}
+	}
+}
