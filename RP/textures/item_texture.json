@@ -1,5 +1,15 @@
 {
 	"resource_pack_name": "More Explosives",
 	"texture_name": "atlas.items",
-	"texture_data": {}
+	"texture_data": {
+		"explosives_nuclear_core": {
+			"textures": "textures/items/nuclear core"
+		},
+		"explosives_shielded_nuclear_core": {
+			"textures": "textures/items/nuclear core_shielded"
+		},
+		"explosives_paroxys_cannon": {
+			"textures": "textures/items/paroxys cannon"
+		}
+	}
 }

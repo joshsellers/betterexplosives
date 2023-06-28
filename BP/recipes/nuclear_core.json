@@ -1,0 +1,30 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "explosives:nuclear_core"
+		},
+		"tags": [
+			"explosives_assembly_table"
+		],
+		"key": {
+			"#": {
+				"item": "minecraft:emerald"
+			},
+			"X": {
+				"item": "minecraft:diamond"
+			},
+			"R": {
+				"item": "minecraft:redstone"
+			}
+		},
+		"pattern": [
+			"X#X",
+			"#R#",
+			"X#X"
+		],
+		"result": {
+			"item": "explosives:nuclear_core"
+		}
+	}
+}

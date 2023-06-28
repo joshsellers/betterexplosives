@@ -1,5 +1,21 @@
 import { world, MinecraftBlockTypes } from "@minecraft/server"
 
+world.afterEvents.itemUse.subscribe((event) => {
+    const item = event.itemStack;
+    const player = event.source;
+    if (item != undefined && item.typeId != undefined
+        && item.typeId == "explosives:paroxys_cannon") {
+        const block = player.getBlockFromViewDirection({ maxDistance: 100 });
+        try {
+            block.dimension.createExplosion(block.location, 40,
+                { allowUnderwater: true, causesFire: true }
+            );
+        } catch (e) {
+
+        }
+    }
+});
+
 world.afterEvents.itemStartUseOn.subscribe((event) => {
     const item = event.itemStack;
     const block = event.block;
@@ -36,54 +52,55 @@ var impactedTypes = [];
 var newExplosionLocations = [];
 
 world.beforeEvents.explosion.subscribe((event) => {
-    event.getImpactedBlocks().forEach((blockPos) => {
-        try {
-            const block = event.dimension.getBlock(blockPos);
-            if (block != undefined
-                && event.source.typeId != "explosives:mininuke_additional_explosion"
-                && block.typeId.includes("explosives")) {
-                impactedExplosives.push(blockPos);
-                impactedTypes.push(block.typeId);
+    if (event.source != undefined
+        && event.source.typeId != "explosives:mininuke_additional_explosion") {
+        event.getImpactedBlocks().forEach((blockPos) => {
+            try {
+                const block = event.dimension.getBlock(blockPos);
+                if (block != undefined
+                    && block.typeId.includes("explosives")) {
+                    impactedExplosives.push(blockPos);
+                    impactedTypes.push(block.typeId);
+                }
+            } catch (e) {
+                return;
             }
-        } catch (e) {
-            log(`${e.message}`);
-            return;
+        });
+
+        if (event.source != undefined && event.source.typeId == "explosives:mininuke") {
+            const dist = 20;
+            const sourceLoc = event.source.location;
+            newExplosionLocations = [
+                { x: sourceLoc.x - dist, y: sourceLoc.y - dist, z: sourceLoc.z - dist },
+                { x: sourceLoc.x, y: sourceLoc.y - dist, z: sourceLoc.z - dist },
+                { x: sourceLoc.x + dist, y: sourceLoc.y - dist, z: sourceLoc.z - dist },
+                { x: sourceLoc.x - dist, y: sourceLoc.y - dist, z: sourceLoc.z },
+                { x: sourceLoc.x, y: sourceLoc.y - dist, z: sourceLoc.z },
+                { x: sourceLoc.x + dist, y: sourceLoc.y - dist, z: sourceLoc.z },
+                { x: sourceLoc.x - dist, y: sourceLoc.y - dist, z: sourceLoc.z + dist },
+                { x: sourceLoc.x, y: sourceLoc.y - dist, z: sourceLoc.z + dist },
+                { x: sourceLoc.x + dist, y: sourceLoc.y - dist, z: sourceLoc.z + dist },
+
+                { x: sourceLoc.x - dist, y: sourceLoc.y, z: sourceLoc.z - dist },
+                { x: sourceLoc.x, y: sourceLoc.y, z: sourceLoc.z - dist },
+                { x: sourceLoc.x + dist, y: sourceLoc.y, z: sourceLoc.z - dist },
+                { x: sourceLoc.x - dist, y: sourceLoc.y, z: sourceLoc.z },
+                { x: sourceLoc.x + dist, y: sourceLoc.y, z: sourceLoc.z },
+                { x: sourceLoc.x - dist, y: sourceLoc.y, z: sourceLoc.z + dist },
+                { x: sourceLoc.x, y: sourceLoc.y, z: sourceLoc.z + dist },
+                { x: sourceLoc.x + dist, y: sourceLoc.y, z: sourceLoc.z + dist },
+
+                { x: sourceLoc.x - dist, y: sourceLoc.y + dist, z: sourceLoc.z - dist },
+                { x: sourceLoc.x, y: sourceLoc.y + dist, z: sourceLoc.z - dist },
+                { x: sourceLoc.x + dist, y: sourceLoc.y + dist, z: sourceLoc.z - dist },
+                { x: sourceLoc.x - dist, y: sourceLoc.y + dist, z: sourceLoc.z },
+                { x: sourceLoc.x, y: sourceLoc.y + dist, z: sourceLoc.z },
+                { x: sourceLoc.x + dist, y: sourceLoc.y + dist, z: sourceLoc.z },
+                { x: sourceLoc.x - dist, y: sourceLoc.y + dist, z: sourceLoc.z + dist },
+                { x: sourceLoc.x, y: sourceLoc.y + dist, z: sourceLoc.z + dist },
+                { x: sourceLoc.x + dist, y: sourceLoc.y + dist, z: sourceLoc.z + dist },
+            ]
         }
-    });
-
-    if (event.source != undefined && event.source.typeId == "explosives:mininuke") {
-        const dist = 20;
-        const sourceLoc = event.source.location;
-        newExplosionLocations = [
-            { x: sourceLoc.x - dist, y: sourceLoc.y - dist, z: sourceLoc.z - dist },
-            { x: sourceLoc.x, y: sourceLoc.y - dist, z: sourceLoc.z - dist },
-            { x: sourceLoc.x + dist, y: sourceLoc.y - dist, z: sourceLoc.z - dist },
-            { x: sourceLoc.x - dist, y: sourceLoc.y - dist, z: sourceLoc.z },
-            { x: sourceLoc.x, y: sourceLoc.y - dist, z: sourceLoc.z },
-            { x: sourceLoc.x + dist, y: sourceLoc.y - dist, z: sourceLoc.z },
-            { x: sourceLoc.x - dist, y: sourceLoc.y - dist, z: sourceLoc.z + dist },
-            { x: sourceLoc.x, y: sourceLoc.y - dist, z: sourceLoc.z + dist },
-            { x: sourceLoc.x + dist, y: sourceLoc.y - dist, z: sourceLoc.z + dist },
-
-            { x: sourceLoc.x - dist, y: sourceLoc.y, z: sourceLoc.z - dist },
-            { x: sourceLoc.x, y: sourceLoc.y, z: sourceLoc.z - dist },
-            { x: sourceLoc.x + dist, y: sourceLoc.y, z: sourceLoc.z - dist },
-            { x: sourceLoc.x - dist, y: sourceLoc.y, z: sourceLoc.z },
-            { x: sourceLoc.x + dist, y: sourceLoc.y, z: sourceLoc.z },
-            { x: sourceLoc.x - dist, y: sourceLoc.y, z: sourceLoc.z + dist },
-            { x: sourceLoc.x, y: sourceLoc.y, z: sourceLoc.z + dist },
-            { x: sourceLoc.x + dist, y: sourceLoc.y, z: sourceLoc.z + dist },
-
-            { x: sourceLoc.x - dist, y: sourceLoc.y + dist, z: sourceLoc.z - dist },
-            { x: sourceLoc.x, y: sourceLoc.y + dist, z: sourceLoc.z - dist },
-            { x: sourceLoc.x + dist, y: sourceLoc.y + dist, z: sourceLoc.z - dist },
-            { x: sourceLoc.x - dist, y: sourceLoc.y + dist, z: sourceLoc.z },
-            { x: sourceLoc.x, y: sourceLoc.y + dist, z: sourceLoc.z },
-            { x: sourceLoc.x + dist, y: sourceLoc.y + dist, z: sourceLoc.z },
-            { x: sourceLoc.x - dist, y: sourceLoc.y + dist, z: sourceLoc.z + dist },
-            { x: sourceLoc.x, y: sourceLoc.y + dist, z: sourceLoc.z + dist },
-            { x: sourceLoc.x + dist, y: sourceLoc.y + dist, z: sourceLoc.z + dist },
-        ]
     }
 });
 
@@ -108,10 +125,11 @@ world.afterEvents.explosion.subscribe((event) => {
     if (newExplosionLocations.length > 0) {
         newExplosionLocations.forEach((location) => {
             try {
-                //event.dimension.createExplosion(location, 40, { allowUnderwater: true, causesFire: true });
-                event.dimension.spawnEntity("explosives:mininuke_additional_explosion", location);
+                event.dimension.createExplosion(location, 40, {
+                    allowUnderwater: true, causesFire: true
+                });
+                //event.dimension.spawnEntity("explosives:mininuke_additional_explosion", location);
             } catch (e) {
-                log(`${e.message}`);
                 return;
             }
         });

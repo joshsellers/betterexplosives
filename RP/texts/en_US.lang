@@ -7,3 +7,6 @@ item.spawn_egg.entity.explosives:mininuke.name=Spawn Mini-Nuke
 entity.explosives:mininuke.name=Mini-Nuke
 item.spawn_egg.entity.explosives:mininuke_additional_explosion.name=Spawn mininuke_additional_explosion
 entity.explosives:mininuke_additional_explosion.name=mininuke_additional_explosion
+item.explosives:nuclear_core=Nuclear Core
+item.explosives:shielded_nuclear_core=Shielded Nuclear Core
+item.explosives:paroxys_cannon=Paroxys Cannon

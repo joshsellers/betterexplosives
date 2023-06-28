@@ -1,0 +1,16 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "explosives:nuclear_core",
+			"category": "items"
+		},
+		"components": {
+			"minecraft:icon": {
+				"texture": "explosives_nuclear_core"
+			},
+			"minecraft:foil": true,
+			"minecraft:max_stack_size": 16
+		}
+	}
+}
